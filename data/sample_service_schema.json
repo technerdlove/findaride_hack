@@ -1,0 +1,133 @@
+[
+    {
+        "name": "Catholic Community Services - Disabled Veterans Transportation",
+        "advance-notice": 604800,
+        "vehicle-type": "private",
+        "schedule": {
+            "monday": {
+                "start": "8:30",
+                "end": "17:00"
+            },
+            "tuesday": {
+                "start": "8:30",
+                "end": "17:00"
+            },
+            "wednesday": {
+                "start": "8:30",
+                "end": "17:00"
+            },
+            "thursday": {
+                "start": "8:30",
+                "end": "17:00"
+            }
+        },
+        "door-to-door": true,
+        "cost": {
+            "_comment": "Not available for youth",
+            "youth": null,
+            "adults": 0,
+            "seniors": 0,
+            "with-disability": 0
+        },
+        "accessibility": [
+            "personal-care-attendant"
+        ],
+        "url": "http://www.findaride.org/provider/catholic-community-services-disabled-veterans-transportation",
+        "phone-numbers": [
+            "4253746336",
+            "8882408572"
+        ]
+    },
+    {
+        "name": "Community Transit",
+        "advance-notice": null,
+        "vehicle-type": "bus",
+        "schedule": {
+            "sunday": {
+                "start": "5:00",
+                "end": "23:00"
+            },
+            "monday": {
+                "start": "5:00",
+                "end": "23:00"
+            },
+            "tuesday": {
+                "start": "5:00",
+                "end": "23:00"
+            },
+            "wednesday": {
+                "start": "5:00",
+                "end": "23:00"
+            },
+            "thursday": {
+                "start": "5:00",
+                "end": "23:00"
+            },
+            "friday": {
+                "start": "5:00",
+                "end": "23:00"
+            },
+            "saturday": {
+                "start": "5:00",
+                "end": "23:00"
+            }
+        },
+        "door-to-door": true,
+        "cost": {
+            "_comment": "maybe split into regions? not many of them are this complicated. values are in cents.",
+            "adults": {
+                "default": 225,
+                "Commuter/South Everett": 425,
+                "Commuter/North-East": 550
+            },
+            "seniors": {
+                "default": 100,
+                "Commuter/South RRFP": 200,
+                "Commuter/North-East RRFP": 250
+            },
+            "with-disability": {
+                "default": 100,
+                "Commuter/South RRFP": 200,
+                "Commuter/North-East RRFP": 250
+            },
+            "youth": {
+                "default": 150,
+                "Commuter/South Everett": 300,
+                "Commuter/North-East": 400
+            },
+            "discounts": [
+                "RRFP is a reduced fare bus pass that is available to people 65 years or older, and/or people living with disabilities. The card allows riders to save over 50 percent on trips using public transit. To see if you qualify for this program, go to http://metro.kingcounty.gov/"
+            ]
+        },
+        "accessibility": [
+            "personal-care-attendant",
+            "power-chair",
+            "wheelchair",
+            "scooter",
+            "walker"
+        ],
+        "url": "http://www.findaride.org/provider/community-transit",
+        "phone-numbers": [
+            "4253537433"
+        ]
+    },
+    {
+        "name": "Duvall Community Van",
+        "advance-notice": null,
+        "vehicle-type": "van",
+        "_comment": "this is a rideshare, no fixed hours",
+        "accessibility": [
+            "wheelchair",
+            "foldable-wheelchair",
+            "scooter",
+            "walker"
+        ],
+        "phone-numbers": [
+            "2066254500",
+            {
+                "number": "2066254500",
+                "tty": 711
+            }
+        ]
+    }
+]
