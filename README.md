@@ -4,9 +4,9 @@
 
 ### Team members
 
-Ann
-Charlotte Tan (team lead)
-Dionna Glaze
-Julian
-Patrick Laban
-Shaun Glaze
+  * Ann
+  * Charlotte Tan (team lead)
+  * Dionna Glaze
+  * Julian
+  * Patrick Laban
+  * Shaun Glaze
