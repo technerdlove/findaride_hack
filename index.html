@@ -26,7 +26,7 @@
 
   </head>
 
-  <body>
+  <body onload="initialize()">
     <div id="container">
       <div class="inner">
 
@@ -93,10 +93,12 @@
       }
 
 var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
+var directionsService;
 var map;
 
 function initialize() {
+  directionsService = new google.maps.DirectionsService();
+
   directionsDisplay = new google.maps.DirectionsRenderer();
   var seattle = new google.maps.LatLng(cityhall_lat, cityhall_lng);
   var mapOptions = {
@@ -106,6 +108,7 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+  dart_initialize();
 }
 
 function calcRoute() {
@@ -124,9 +127,9 @@ function calcRoute() {
 }
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtUnvDQKSlpAxrhCGZ34abHvw8fNY-v-w&amp;callback=initMap">
-</script>
-
+<script type="application/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtUnvDQKSlpAxrhCGZ34abHvw8fNY-v-w&amp;callback=initMap"></script>
+    <script type="text/javascript" src="script/geoxml3.js"></script>
+    <script type="text/javascript" src="script/v3_epoly.js"></script>
 <h3 id="team-members">Team members</h3>
 
 <ul>
@@ -139,7 +142,77 @@ function calcRoute() {
 </ul>
 
         </section>
+<div id="dart_content">
+    <h1>DART Service Area Finder</h1>
+    <p>Use the map below to determine if you are in a DART service area</p>
+    <form action="#" onsubmit="showAddress(this.address.value); return false" style="padding:10px 0px 30px 0px; background:none;">
+        <p>
+            <label>Address Search</label>
+            <input type="text" size="60" name="address" value="" class="address" />
+            <input type="submit" value="Search" />
+        </p>
+        <div id="dart_map_canvas" style="width: 516px; height: 387px; margin-bottom:30px; border:1px solid #999;"></div>
+    </form>
+</div>
 
+    <script type="text/javascript">
+
+    var geoXml = null;
+    var dart_map = null;
+    var geocoder = null;
+    var toggleState = 1;
+    var infowindow = null;
+    var marker = null;
+
+function dart_initialize() {
+  geocoder = new google.maps.Geocoder();
+  infowindow = new google.maps.InfoWindow({size: new google.maps.Size(150,50) });
+  // create the map
+  var myOptions = {
+    center: new google.maps.LatLng(47.6062, -122.3321),
+    mapTypeControl: true,
+    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+    navigationControl: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+
+  dart_map = new google.maps.Map(document.getElementById("dart_map_canvas"),
+                                myOptions);
+  geoXml = new geoXML3.parser({map: dart_map, singleInfoWindow: true, infoWindow: infowindow});
+
+  geoXml.parse("data/dart_area.kml");
+}
+function showAddress(address) {
+    var contentString = address+"<br>Outside DART Service Area";
+
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+	  var point = results[0].geometry.location;
+          dart_map.setCenter(point);
+          if (marker && marker.setMap) marker.setMap(null);
+          marker = new google.maps.Marker({
+              map: dart_map,
+              position: point
+          });
+        for (var i=0; i<geoXml.docs[0].gpolygons.length; i++) {
+          if (geoXml.docs[0].gpolygons[i].Contains(point)) {
+            contentString = address+"<br>"+geoXml.docs[0].placemarks[i].name;
+            i = 999; // Jump out of loop
+          }
+        }
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(contentString);
+        infowindow.open(dart_map,marker);
+        });
+    google.maps.event.trigger(marker,"click");
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+}
+
+
+	</script>
         <footer>
           findaride_hack is maintained by the findaride++ hackathon team
 
