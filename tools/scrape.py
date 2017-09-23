@@ -49,9 +49,16 @@ def _get_field_name(class_values):
 
 def parse_service(service_url):
     soup = _js_url_to_soup(service_url)
-    desc = soup.find("div", attrs={"class": "field field-name-body"})
-   
+
     fields = {}
+    title = soup.find("div", attrs={"class":
+                                    lambda c: c == "field-name-title"})
+    if title:
+        fields["title"] = title.get_text()
+
+    desc = soup.find("div", attrs={"class": "field field-name-body"})
+    if desc:
+        fields["description"] = desc.get_text()
 
     rows = soup.find_all("div", attrs={"class": _row_filter})
     for row in rows:
@@ -77,6 +84,7 @@ def parse_service(service_url):
             costs[field_name] = div.find_all(text=True)
 
         fields["cost"] = costs
+
     return fields
 
 
@@ -106,6 +114,7 @@ def main():
         sys.stderr.write(service_url + "\n")
         fields = parse_service(service_url)
         services[service_url] = fields
+
     print(json.dumps(services, indent=2))
 
 if __name__ == "__main__":
