@@ -182,11 +182,40 @@
 
 
         var dartPickupAreas = null;
+        var transitRoutes = null;
         var map = null;
         var geocoder = null;
         var toggleState = 1;
         var infowindow = null;
         var marker = null;
+
+        function toggleLayer(layer, forceDelete) {
+            for (let i = 0; i < layer.docs[0].gpolygons.length; i++) {
+                let poly = layer.docs[0].gpolygons[i];
+                if (forceDelete || poly.getMap()) {
+                    poly.setMap(null);
+                } else {
+                    poly.setMap(map);
+                }
+            }
+            for (let i = 0; i < layer.docs[0].gpolylines.length; i++) {
+                let line = layer.docs[0].gpolylines[i];
+                if (forceDelete || line.getMap()) {
+                    line.setMap(null);
+                } else {
+                    line.setMap(map);
+                }
+            }
+        }
+
+        function hideLayersInitial() {
+            if (!dartPickupAreas.docs[0] || !transitRoutes.docs[0]) {
+                setTimeout(hideLayersInitial, 1000);
+            }
+
+            toggleLayer(dartPickupAreas, true);
+            toggleLayer(transitRoutes, true);
+        }
 
         function initialize() {
             geocoder = new google.maps.Geocoder();
@@ -204,6 +233,11 @@
             dartPickupAreas = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
 
             dartPickupAreas.parse("data/dart_area.kml");
+
+            transitRoutes = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
+            transitRoutes.parse("data/routes_line.kml");
+
+            setTimeout(hideLayersInitial, 1000);
         }
 
         function showAddress() {
@@ -219,6 +253,7 @@
                     for (var i=0; i<dartPickupAreas.docs[0].gpolygons.length; i++) {
                         if (dartPickupAreas.docs[0].gpolygons[i].Contains(point)) {
                             contentString = address+"<br>"+dartPickupAreas.docs[0].placemarks[i].name;
+                            dartPickupAreas.docs[0].gpolygons[i].setMap(map);
                             break;
                         }
                     }
