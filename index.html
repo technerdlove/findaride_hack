@@ -127,7 +127,17 @@
 <button type="button" id="go" onclick="showAddress()" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
   Go!
 </button>
-
+<br><br>
+<div class="dropdown" id="map-options">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Map Options
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#" onclick="toggleLayer(dartPickupAreas, false)">Toggle DART Service Area</a></li>
+    <li><a href="#" onclick="toggleLayer(transitRoutes, false)">Toggle Transit Routes</a></li>
+  </ul>
+</div>
 
 
 
@@ -178,6 +188,7 @@
                     return false; // Avoid Refresh page after run function. This line kill everything
                 }
             });
+            $('#map-options').hide();
         })
 
 
@@ -215,6 +226,7 @@
 
             toggleLayer(dartPickupAreas, true);
             toggleLayer(transitRoutes, true);
+            $('#map-options').show();
         }
 
         function initialize() {
