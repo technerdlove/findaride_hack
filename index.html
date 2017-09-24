@@ -347,6 +347,19 @@
         toggleLayer(hydeShuttles, true);
     }
 
+    function setMapMarker(point, contentString) {
+        if (marker && marker.setMap) {
+            marker.setMap(null);
+        }
+
+        marker = new google.maps.Marker({map: map, position: point});
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(contentString);
+            infowindow.open(map,marker);
+        });
+        google.maps.event.trigger(marker,"click");
+    }
+
     function showAddress() {
         clearTransitLayers();
 
@@ -357,8 +370,6 @@
             if (status == google.maps.GeocoderStatus.OK) {
                 var point = results[0].geometry.location;
                 map.setCenter(point);
-                if (marker && marker.setMap) marker.setMap(null);
-                marker = new google.maps.Marker({map: map, position: point});
                 for (var i=0; i<dartPickupAreas.docs[0].placemarks.length; i++) {
                     let placemark = dartPickupAreas.docs[0].placemarks[i];
                     if (placemark.polygon.Contains(point)) {
@@ -373,11 +384,8 @@
                         break;
                     }
                 }
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.setContent(contentString);
-                    infowindow.open(map,marker);
-                });
-                google.maps.event.trigger(marker,"click");
+
+                setMapMarker(point, contentString);
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
             }
@@ -424,6 +432,8 @@
 
                 map.setCenter(point);
 
+                let contentString = origin + "<br>" + destination;
+
                 if (hydeExpectOrigin && hydeExpectDestination) {
                     // shuttle must be in both
                     // XXX: maybe use js Set
@@ -431,18 +441,23 @@
                         for (let j = 0; j < hydeDestinations.length; j++) {
                             if (hydeOrigins[i] == hydeDestinations[i]) {
                                 hydeOrigins[i].polygon.setMap(map);
+                                contentString += "<br>" + hydeOrigins[i].name;
                             }
                         }
                     }
                 } else if (hydeExpectOrigin) {
                     for (let i = 0; i < hydeOrigins.length; i++) {
                         hydeOrigins[i].polygon.setMap(map);
+                        contentString += "<br>" + hydeOrigins[i].name;
                     }
                 } else if (hydeExpectDestination) {
                     for (let i = 0; i < hydeDestinations.length; i++) {
                         hydeDestinations[i].polygon.setMap(map);
+                        contentString += "<br>" + hydeDestinations[i].name;
                     }
                 }
+
+                setMapMarker(point, contentString);
             };
         };
 
