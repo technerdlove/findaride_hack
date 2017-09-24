@@ -36,7 +36,7 @@
       "866-235-5247"
     ],
     "service-area": [
-      "King/Snohomish County"
+	"King County", "Snohomish County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -186,7 +186,7 @@
       "1-800-USA-RAIL (1-800-872-7245)"
     ],
     "service-area": [
-      "King/Pierce/Snohomish Counties"
+	"King County", "Pierce County", "Snohomish County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -245,7 +245,7 @@
       "253-858-7088"
     ],
     "service-area": [
-      "King and Pierce Counties"
+	"King County", "Pierce County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -763,7 +763,7 @@
       "206-764-2564"
     ],
     "service-area": [
-      "King and Snohomish Counties"
+	"King County", "Snohomish County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -1292,7 +1292,7 @@
       "1-800-231-2222"
     ],
     "service-area": [
-      "King/Pierce/Snohomish Counties"
+	"King County", "Pierce County", "Snohomish County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -1466,7 +1466,7 @@
       "TTY: (800) 246-1646"
     ],
     "service-area": [
-      "King & Snohomish Counties"
+	"King County", "Snohomish County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -2658,7 +2658,7 @@
       "(206) 320-5325"
     ],
     "service-area": [
-      "Most of King County"
+      "King County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -2769,7 +2769,7 @@
       "253-778-7958"
     ],
     "service-area": [
-      "East Pierce and South King Counties"
+	"East Pierce County", "South King County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -4043,7 +4043,7 @@
       "(888) 889-6368, TTY Relay: 711"
     ],
     "service-area": [
-      "King/Pierce/Snohomish Counties"
+	"King County", "Pierce County", "Snohomish County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -4157,7 +4157,7 @@
       "(888) 889-6368, TTY Relay: 711"
     ],
     "service-area": [
-      "King/Pierce/Snohomish Counties"
+	"King County", "Pierce County", "Snohomish County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -4314,7 +4314,7 @@
       "1-844-240-1424"
     ],
     "service-area": [
-      "King County and Snohomish County south of Everett"
+	"King County", "Snohomish County south of Everett"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -4430,7 +4430,7 @@
       "(253) 476-8726"
     ],
     "service-area": [
-      "King/Pierce/Snohomish Counties"
+	"King County", "Pierce County", "Snohomish County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -4685,7 +4685,7 @@
       "206-764-2810 (evenings, and weekends)"
     ],
     "service-area": [
-      "Snohomish and Pierce Counties"
+	"Snohomish County", "Pierce County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
