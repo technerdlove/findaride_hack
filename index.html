@@ -196,7 +196,7 @@
                   <ul class="list-group">
                     <li class="list-group-item"><label><input type="checkbox" name="chk_plot" value="bus_route" onclick="toggleLayer(transitRoutes, false)" id="chk_bus" onclick="plot_layer('true');"> Transit Routes</label></li>
                     <li class="list-group-item"><label><input type="checkbox" name="chk_plot" value="dart_route" onclick="toggleLayer(dartPickupAreas, false)" id="chk_dart" onclick="plot_layer('true');"> DART Service Area</label></li>
-
+                    <li class="list-group-item"><label><input type="checkbox" name="chk_plot" value="hyde_shuttles" onclick="toggleLayer(hydeShuttles, false)" id="chk_dart" onclick="plot_layer('true');"> Hyde Shuttles</label></li>
                   </ul>
                 </div>
               </div>
@@ -268,6 +268,7 @@
       var dartPickupAreas = null;
       var transitRoutes = null;
       var routePlacemarks = {};
+      var hydeShuttles = null;
       var map = null;
       var geocoder = null;
       var toggleState = 1;
@@ -307,17 +308,23 @@
         infowindow = new google.maps.InfoWindow();
         service = new google.maps.places.PlacesService(map);
 
-        dartPickupAreas = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
+        let geoOpts = {map: map,
+                       singleInfoWindow: true,
+                       infoWindow: infowindow};
 
+        dartPickupAreas = new geoXML3.parser(geoOpts);
         dartPickupAreas.parse("data/dart_area.kml");
 
-        transitRoutes = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
+        transitRoutes = new geoXML3.parser(geoOpts);
         transitRoutes.parse("data/routes_line.kml");
-        geocoder = new google.maps.Geocoder();
+
+        hydeShuttles = new geoXML3.parser(geoOpts);
+        hydeShuttles.parse("data/King_County_Community_Shuttles.kml");
+
         setTimeout(hideLayersInitial, 1000);
 
+        geocoder = new google.maps.Geocoder();
       }
-
 
 
         function showAddress() {
@@ -395,6 +402,7 @@
 
             toggleLayer(dartPickupAreas, true);
             toggleLayer(transitRoutes, true);
+            toggleLayer(hydeShuttles, true);
             $('#map-options').show();
 
             // map dartPickupAreas to their respective routes

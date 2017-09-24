@@ -262,7 +262,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Burien/Highline Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -573,7 +573,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Des Moines/Normandy Park Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -784,7 +784,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Central Seattle Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -5364,7 +5364,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Federal Way Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -8623,7 +8623,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Greater Maple Valley Community Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -8845,7 +8845,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Northeast Seattle Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -9906,7 +9906,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Northshore Senior Center Transportation</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -10270,7 +10270,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Northwest Seattle Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -16703,7 +16703,7 @@
             </innerBoundaryIs>
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Renton Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -17581,7 +17581,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Queen Anne/Magnolia/Interbay Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -18629,7 +18629,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Shoreline/Lake Forest Park Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -18941,7 +18941,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Snoqualmie Valley Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -19181,7 +19181,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Beacon Hill/Southeast Seattle Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -19496,7 +19496,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>West Seattle Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -23112,7 +23112,7 @@
             </innerBoundaryIs>
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>SeaTac/Tukwila Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -32040,7 +32040,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Kirkland Senior Bus</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -34785,7 +34785,7 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Enumclaw Care Van</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -38408,7 +38408,7 @@
             </innerBoundaryIs>
     </Polygon>
     </MultiGeometry>
-    </Placemark><Placemark>
+    <name>Auburn Hyde Shuttle</name></Placemark><Placemark>
       <styleUrl>#defaultStyle</styleUrl>
       
       <ExtendedData>
@@ -38456,5 +38456,5 @@
       
     </Polygon>
     </MultiGeometry>
-    </Placemark></Folder>  </Document>
+    <name>SVT Demand Response Service</name></Placemark></Folder>  </Document>
   </kml>
