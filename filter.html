@@ -1,0 +1,189 @@
+<html>
+  <body>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+function dont_show(service, knowns) {
+    "use strict";
+    if (knowns.hasOwnProperty("unwanted-vehicles")) {
+        // Has vehicles that are not unwanted => show
+        return !service["vehicle-type"].some(function (type) {
+            return !knowns["unwanted-vehicles"].includes(type);
+        });
+    }
+    return false;  // No block list to filter.
+}
+
+function cant_accommodate(service, knowns) {
+    "use strict";
+    if (knowns.hasOwnProperty("must-accommodate")) {
+        return knowns["must-accommodate"].some(function (must) {
+            return !service.accessibility.includes(must);
+        });
+    }
+    return false;  // No needs to satisfy.
+}
+
+// Returns false or a reason why availability is limited.
+function limited_availability(service, knowns) {
+    "use strict";
+    return false;
+}
+
+var dayCode = ["Su", "M", "Tu", "W", "Th", "F", "Sa"];
+
+function setHHMM24h(hhmm, date) {
+    "use strict";
+    var parts = hhmm.split(":");
+    date.setHours(Number(parts[0]));
+    date.setMinutes(Number(parts[1]));
+    return date;
+}
+
+function IsInTimeRangeString(range, datetime) {
+    "use strict";
+    var start_time = new Date(datetime);
+    var end_time = new Date(datetime);
+    var parts = range.split("-");
+    return setHHMM24h(parts[0], start_time) <= datetime &&
+           setHHMM24h(parts[1], end_time) >= datetime;
+}
+
+function IsInServiceInterval(service, datetime) {
+    "use strict";
+    var times = service["service-hours"];
+    if (times.length === 1) {
+        if (times[0] === "24/7") {
+            return true;
+        }
+        if (times[0].startsWith("Data missing:")) {
+            return {"incomplete": times};
+        }
+        return IsInTimeRangeString(times[0], datetime);
+    }
+    // We know the strings are [Day0/Day1/...:] [TimeRangeString]
+    // So match day, then pass the remaining to IsInTimeRangeString.
+    var theDay = dayCode[datetime.getDay()];
+    return times.some(function (days_time) {
+        var parts = days_time.split("@");
+        var days = parts[0].split("/");
+        return days.include(theDay) && IsInTimeRangeString(parts[1].trim(), datetime);
+    });
+}
+
+// Yes/no/maybe answers.
+function TimeIsServiceable(service, datetime) {
+    "use strict";
+    var serviceDay = dayCode[datetime.getDay()];
+    if (!service["service-days"].includes(serviceDay)) {
+        return false;
+    }
+    return IsInServiceInterval(service, datetime);
+}
+
+// Complete match, complete insatisfiability, and many reasons maybe.
+function CombineResults(result0, result1) {
+    "use strict";
+    if (result0 === false || result1 === false) {
+        return false;
+    }
+    if (result1 === true && result1 === true) {
+        return true;
+    }
+    var incomplete0 = result0.hasOwnProperty("incomplete") ? result0["incomplete"] : [];
+    var incomplete1 = result1.hasOwnProperty("incomplete") ? result1["incomplete"] : [];
+    return {"incomplete": incomplete0.concat(incomplete1)};
+}
+
+function Eligible(service, knowns) {
+    "use strict";
+    if (service["disability-status"] === "Yes") {
+        return {"incomplete": "Unknown disability status"};
+    }
+    return true;  // Lies.
+}
+
+function Available(service, knowns) {
+    "use strict";
+    if (dont_show(service, knowns) || cant_accommodate(service, knowns)) {
+        return 0;  // no match.
+    }
+    var time = new Date();
+    if (knowns.hasOwnProperty("Depart-at")) {
+        time = knowns["Depart-at"];
+    }
+    // TODO: needs advance notice?
+    return CombineResults(TimeIsServiceable(service, time),
+                          Eligible(service, knowns));
+}
+
+function AvailableServices(services, knowns) {
+    "use strict";
+    // services is an array
+    var complete = [];
+    var incomplete = [];
+    services.forEach(function (service) {
+        var result = Available(service, knowns);
+        if (result === true) {
+            complete.push(service);
+        } else if (result.hasOwnProperty("incomplete")) {
+            incomplete.push({"incomplete": result["incomplete"], "service": service});
+        }
+    });
+    return {"complete": complete, "incomplete": incomplete};
+}
+
+function UniqueEntriesInKey(service, key, seen) {
+    "use strict";
+    if (service.hasOwnProperty(key)) {
+        service[key].forEach(function (element) {
+            if (!seen.includes(element)) {
+                seen.push(element);
+            }
+        });
+    }
+}
+
+function showUniqueKey(services, key) {
+    "use strict";
+    var seen = [];
+    services.forEach(function (service) {
+        UniqueEntriesInKey(service, key, seen);
+    });
+    seen.forEach(function (value) { document.write(value + "<br />\n"); });
+    document.write("Stufffff<br/>");
+}
+
+function withServices(knowns) {
+    "use strict";
+    return function (services) {
+        "use strict";
+        var results = AvailableServices(services, knowns);
+        document.write("Results: " + results + "<br/>\n");
+        var filtered = results.complete;
+        document.write("Services matching: ");
+        document.write(filtered.length + "<br/>");
+        filtered.forEach(function (service, i) {
+            document.write("Service " + (i + 1) + ": ");
+            document.write(service.title + "<br/>");
+        });
+    };
+}
+    </script>
+    <script>
+      google.load("jquery", "1.7.1");
+    </script>
+<script>
+  var knowns = {
+      "origin": {lat: 47.6062, lng: -122.3321},
+      "destination": {lat: 47.6062, lng: -122.3321},
+      "depart-at": new Date(),
+      "unwanted-vehicles": ["Bus", "Taxi", "Shuttle-Bus"],
+      "must-accommodate": ["Wheelchair"]
+  };
+  document.write("At least this happens. " + knowns["depart-at"].toISOString() + "<br/>\n");
+  $.getJSON("https://deeglaze.github.io/findaride_hack/data/service_info.json",
+            withServices(knowns));
+</script>
+Tuxt.
+  </body>
+  </html>
