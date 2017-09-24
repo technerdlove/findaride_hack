@@ -326,44 +326,53 @@
         geocoder = new google.maps.Geocoder();
       }
 
-
-        function showAddress() {
-            address = $('input[name=origin]').val();
-            var contentString = address+"<br>Outside DART Service Area";
-
-            geocoder.geocode({'address': address}, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var point = results[0].geometry.location;
-                    map.setCenter(point);
-                    if (marker && marker.setMap) marker.setMap(null);
-                    marker = new google.maps.Marker({map: map, position: point});
-                    for (var i=0; i<dartPickupAreas.docs[0].placemarks.length; i++) {
-                        let placemark = dartPickupAreas.docs[0].placemarks[i];
-                        if (placemark.polygon.Contains(point)) {
-                            contentString = address+"<br>"+placemark.name;
-
-                            // toggle pickup area
-                            placemark.polygon.setMap(map);
-
-                            // toggle route
-                            let r = placemark.name.slice("Route ".length);
-                            routePlacemarks[r].polyline.setMap(map);
-                            break;
-                        }
-                    }
-                    google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.setContent(contentString);
-                        infowindow.open(map,marker);
-                    });
-                    google.maps.event.trigger(marker,"click");
-                } else {
-                    alert("Geocode was not successful for the following reason: " + status);
-                }
-            });
+    var updateColors = function () {
+        for (var i = 0; i < dartPickupAreas.docs[0].placemarks.length; i++) {
+            let placemark = dartPickupAreas.docs[0].placemarks[i];
+            placemark.polygon.strokeColor = '#0000FF';
+            placemark.polygon.fillColor = '#0000FF';
+            placemark.polygon.fillOpacity = .5;
         }
+    };
+
+            function showAddress() {
+                address = $('input[name=origin]').val();
+                var contentString = address+"<br>Outside DART Service Area";
+
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var point = results[0].geometry.location;
+                        map.setCenter(point);
+                        if (marker && marker.setMap) marker.setMap(null);
+                        marker = new google.maps.Marker({map: map, position: point});
+                        for (var i=0; i<dartPickupAreas.docs[0].placemarks.length; i++) {
+                            let placemark = dartPickupAreas.docs[0].placemarks[i];
+                            if (placemark.polygon.Contains(point)) {
+                                contentString = address+"<br>"+placemark.name;
+
+                                // toggle pickup area
+                                placemark.polygon.setMap(map);
+
+                                // toggle route
+                                let r = placemark.name.slice("Route ".length);
+                                routePlacemarks[r].polyline.setMap(map);
+                                break;
+                            }
+                        }
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infowindow.setContent(contentString);
+                            infowindow.open(map,marker);
+                        });
+                        google.maps.event.trigger(marker,"click");
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }
 
 
-      google.maps.event.addDomListener(window,'load',initMap);
+            google.maps.event.addDomListener(window,'load',initMap);
+
 
 
     </script>
@@ -410,6 +419,7 @@
                 let placemark = transitRoutes.docs[0].placemarks[i];
                 routePlacemarks[placemark.name] = placemark;
             }
+            updateColors();
         }
 
 
