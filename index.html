@@ -63,7 +63,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload="initialize()">
 
 
 
@@ -161,10 +161,11 @@
           center: {lat: 47.6062, lng: -122.3321},
           zoom: 15
         });
-      }      
+      }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDjB5G0Fod2mUs0u9a-B4cF3xyqQa5uAs&sensor=false&libraries=drawing&callback=initMap"></script>
-
+    <script type="text/javascript" src="script/geoxml3.js"></script>
+    <script type="text/javascript" src="script/v3_epoly.js"></script>
 
     <script src="js/geoMap.js"></script>
 
@@ -177,7 +178,59 @@
                     return false; // Avoid Refresh page after run function. This line kill everything
                 }
             });
-        });  
+        })
+
+
+        var geoXml = null;
+        var map = null;
+        var geocoder = null;
+        var toggleState = 1;
+        var infowindow = null;
+        var marker = null;
+
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            infowindow = new google.maps.InfoWindow({size: new google.maps.Size(150,50) });
+            // create the map
+            var myOptions = {
+                center: new google.maps.LatLng(47.6062, -122.3321),
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+
+            map = new google.maps.Map(document.getElementById("map"), myOptions);
+            geoXml = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
+
+            geoXml.parse("data/dart_area.kml");
+        }
+
+        function showAddress(address) {
+            var contentString = address+"<br>Outside DART Service Area";
+
+            geocoder.geocode({'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var point = results[0].geometry.location;
+                    map.setCenter(point);
+                    if (marker && marker.setMap) marker.setMap(null);
+                    marker = new google.maps.Marker({map: map, position: point});
+                    for (var i=0; i<geoXml.docs[0].gpolygons.length; i++) {
+                        if (geoXml.docs[0].gpolygons[i].Contains(point)) {
+                            contentString = address+"<br>"+geoXml.docs[0].placemarks[i].name;
+                            i = geoXml.docs[0].gpolygons.length; // Jump out of loop
+                        }
+                    }
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.setContent(contentString);
+                        infowindow.open(map,marker);
+                    });
+                    google.maps.event.trigger(marker,"click");
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
     </script>
 
 
