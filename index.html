@@ -124,7 +124,7 @@
 
           </div>
 
-<button type="button" id="go" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
+<button type="button" id="go" onclick="showAddress()" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
   Go!
 </button>
 
@@ -206,7 +206,8 @@
             geoXml.parse("data/dart_area.kml");
         }
 
-        function showAddress(address) {
+        function showAddress() {
+            address = $('input[name=origin]').val();
             var contentString = address+"<br>Outside DART Service Area";
 
             geocoder.geocode({'address': address}, function(results, status) {
