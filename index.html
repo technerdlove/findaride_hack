@@ -145,8 +145,8 @@
                           </div>
 
                           <hr />
-                          <button type="button" id="go" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
-                            Go!
+                          <button type="button" id="go" onclick="showAddress()" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
+                              Address in DART Service Area?
                           </button>
 
 
@@ -297,9 +297,9 @@
             //infoWindow.setContent('Location found.');
             //infoWindow.open(map);
             //map.setCenter(pos);
-        });
+          });
       
-      }
+        }
 
       //console.log(user_loc)
 
@@ -313,7 +313,7 @@
 
         transitRoutes = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
         transitRoutes.parse("data/routes_line.kml");
-
+        geocoder = new google.maps.Geocoder();
         setTimeout(hideLayersInitial, 1000);
 
       }
