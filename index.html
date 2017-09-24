@@ -147,17 +147,27 @@
                           </div>
 
                           <hr />
-                          <button type="button" id="go" onclick="showAddress()" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
-                              Address in DART Service Area?
-                          </button>
-                          <button type="button" id="hyde_address_button"
-                                  onclick="maybeDisplayHydeShuttles()"
-                                  data-loading-text="Loading..."
-                                  class="btn btn-primary"
-                                  autocomplete="off"
-                                  style="text-align: center;">
-                              Address in Hyde Shuttle Service Area?
-                          </button>
+                          <label>Pickup Service</label>
+                          <div>
+                              <div>
+                              <button type="button" id="go" onclick="showAddress()" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
+                                  Check DART Service
+                              </button>
+                              <a href="http://metro.kingcounty.gov/tops/bus/dart/">info</a>
+                              </div>
+
+                              <div>
+                              <button type="button" id="hyde_address_button"
+                                      onclick="maybeDisplayHydeShuttles()"
+                                      data-loading-text="Loading..."
+                                      class="btn btn-primary"
+                                      autocomplete="off"
+                                      style="text-align: center;">
+                                  Check Hyde Shuttle
+                              </button>
+                              <a href="https://soundgenerations.org/get-help/transportation/hyde-shuttle/">info</a>
+                              </div>
+                          </div>
                     </div>
                     <div id="menu1" class="tab-pane fade" style="text-align: center;">
 
