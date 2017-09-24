@@ -378,7 +378,12 @@
         clearTransitLayers();
 
         let address = $('input[name=origin]').val();
-        var contentString = address+"<br>Outside DART Service Area";
+        let contentString = address+"<br>Address not in DART pickup areas";
+        contentString += "<br>";
+        contentString += "<button class=\"btn btn-link\"";
+        contentString += "        onclick=\"toggleLayer(dartPickupAreas, false);\">";
+        contentString += "Click here to show nearest areas";
+        contentString += "</button>";
 
         geocoder.geocode({'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
