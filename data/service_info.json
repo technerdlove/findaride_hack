@@ -42,7 +42,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "5:00 am - 11:59 pm"
+      "5:00 - 23:59"
     ],
     "service-type": [
       "Other"
@@ -97,7 +97,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:30am - 5:00pm"
+      "8:30 - 17:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -193,7 +193,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Fixed Route"
@@ -305,7 +305,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:30am - 5:00pm"
+      "8:30 - 17:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -354,7 +354,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "10:00 am-4:00 pm "
+      "10:00 - 16:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -401,7 +401,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -455,7 +455,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:30 am - 4:00 pm"
+      "8:30 - 16:00"
     ],
     "service-type": [
       "Demand Response"
@@ -508,7 +508,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "6:30 am - 4:30 pm"
+      "6:30 - 16:30"
     ],
     "service-type": [
       "Deviated Fixed Route"
@@ -564,7 +564,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "5:00 am - 11:00 p.m."
+      "5:00 - 23:00"
     ],
     "service-type": [
       "Fixed Route"
@@ -619,7 +619,7 @@
       "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Deviated Fixed Route"
@@ -670,7 +670,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website for more details"
+      "Data missing: See website"
     ],
     "service-type": [
       "Other"
@@ -720,7 +720,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "7:00am - 1:30pm"
+      "7:00 - 13:30"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -770,7 +770,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "7:00am - 1:30pm"
+      "7:00 - 13:30"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -827,7 +827,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "Call for specific times. "
+      "Data missing: Call for specific times"
     ],
     "service-type": [
       "Other"
@@ -877,7 +877,7 @@
       "M", "Th", "F"
     ],
     "service-hours": [
-      "8:30-3:30"
+      "8:30 - 15:30"
     ],
     "service-type": [
       "Demand Response"
@@ -928,8 +928,9 @@
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
+      "//": "Scheduling limited to volunteer availability",
     "service-hours": [
-      "8:00 am - 5:00 pm. Scheduling limited to volunteer availability."
+      "8:00 - 17:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -970,7 +971,7 @@
       "M", "Tu", "W", "Th"
     ],
     "service-hours": [
-      "8:30 AM - 2:30 PM "
+      "8:30 - 14:30"
     ],
     "service-type": [
       "Other"
@@ -1027,7 +1028,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "4:40am - 11:27pm"
+      "4:40 - 23:27"
     ],
     "service-type": [
       "Fixed Route"
@@ -1083,7 +1084,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "4:40am - 11:27pm"
+      "4:40 - 23:27"
     ],
     "service-type": [
       "Demand Response"
@@ -1189,7 +1190,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -1245,7 +1246,7 @@
       "M", "W", "F"
     ],
     "service-hours": [
-      "9:00 am - 3:00 pm"
+      "9:00 - 15:00"
     ],
     "service-type": [
       "Demand Response"
@@ -1301,7 +1302,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Intercity"
@@ -1358,7 +1359,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -1373,7 +1374,7 @@
   },
   {
     "title": "Homage Senior Services of Snohomish County-Transportation Assistance Program",
-    "description": "Senior Services of Snohomish County Transportation Assistance Program (TAP) provides a special needs transportation safety net for older adults and people with disabilities outside the Community Transit Dial-a-Ride (DART) service area. TAP connects people to services, health care, senior centers, shopping, recreation and more.\nWe go any place that Community Transit DART or Everett Paratransit doesn't go. (Rural areas)\nOffice hours to call: 8:00 am - 5:00 pm.\nCall today to complete the application process and find out if you are eligible.\n",
+    "description": "Senior Services of Snohomish County Transportation Assistance Program (TAP) provides a special needs transportation safety net for older adults and people with disabilities outside the Community Transit Dial-a-Ride (DART) service area. TAP connects people to services, health care, senior centers, shopping, recreation and more.\nWe go any place that Community Transit DART or Everett Paratransit doesn't go. (Rural areas)\nOffice hours to call: 8:00 am - 17:00.\nCall today to complete the application process and find out if you are eligible.\n",
     "accessibility": [
       "Power Chair",
       "Wheelchair",
@@ -1415,7 +1416,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 5:00 pm"
+      "8:00 - 17:00"
     ],
     "service-type": [
       "Demand Response"
@@ -1524,7 +1525,7 @@
       "M", "Tu", "Th"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Fixed Route"
@@ -1578,7 +1579,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "10:00 am - 2:00 pm"
+      "10:00 - 14:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -1633,7 +1634,7 @@
       "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "9:00 am - 5:00 pm"
+      "9:00 - 17:00"
     ],
     "service-type": [
       "Deviated Fixed Route"
@@ -1693,7 +1694,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "Hours vary by route"
+      "Data missing: Hours vary by route"
     ],
     "service-type": [
       "Demand Response"
@@ -1750,7 +1751,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Fixed Route"
@@ -1808,7 +1809,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "Hours vary by route"
+      "Data missing: Hours vary by route"
     ],
     "service-type": [
       "Deviated Fixed Route"
@@ -1865,7 +1866,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "5:00 am - 12:00 am"
+      "5:00 - 12:00 am"
     ],
     "service-type": [
       "Intercity"
@@ -1959,7 +1960,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "Visit the VanPool site to learn more"
+      "Data missing: See website"
     ],
     "service-type": [
       "Other"
@@ -2016,7 +2017,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "Hours vary by route and season"
+      "Data missing: Hours vary by route and season"
     ],
     "service-type": [
       "Fixed Route"
@@ -2122,7 +2123,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "6:30 am - 7:00 pm"
+      "6:30 - 19:00"
     ],
     "service-type": [
       "Other"
@@ -2178,7 +2179,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -2234,7 +2235,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "12:00 am - 11:59 pm"
+      "12:00 - 23:59"
     ],
     "service-type": [
       "Intercity"
@@ -2289,7 +2290,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "12:00 am - 11:59 pm"
+      "12:00 - 23:59"
     ],
     "service-type": [
       "Intercity"
@@ -2343,7 +2344,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Other"
@@ -2370,7 +2371,7 @@
       "Car Seat"
     ],
     "advance-notice-notes": [
-      "Please call our office at least 2 business days before your medical appointment. Call between 7:00 am and 7:00 pm, Monday through Friday. Call at least 2 weeks in advance to order bus passes or ferry tickets."
+      "Please call our office at least 2 business days before your medical appointment. Call between 7:00 am and 19:00, Monday through Friday. Call at least 2 weeks in advance to order bus passes or ferry tickets."
     ],
     "cost": {
       "cost-adult": [
@@ -2403,7 +2404,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "7:00am - 7:00pm"
+      "7:00 - 19:00"
     ],
     "service-type": [
       "Demand Response"
@@ -2459,7 +2460,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:30 am - 1:30 pm"
+      "8:30 - 13:30"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -2562,7 +2563,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "10:00am - 4:00pm"
+      "10:00 - 16:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -2617,7 +2618,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Demand Response"
@@ -2668,7 +2669,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 - 4:30"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Other"
@@ -2727,7 +2728,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "12:00 am - 11:59 pm"
+      "12:00 - 23:59"
     ],
     "service-type": [
       "Intercity"
@@ -2779,7 +2780,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "6:00am - 6:00pm"
+      "6:00 - 18:00"
     ],
     "service-type": [
       "Demand Response"
@@ -2794,7 +2795,7 @@
   },
   {
     "title": "Rainier Foothills Wellness Foundation Care Van",
-    "description": "FREE service to anyone who demonstrates a transportation hardship for healthcare transporting needs. Operates Monday/Wednesday/Friday from 9:00 AM to 4:00 PM and Tuesday/Thursday from 9:00 AM to 2:00 PM. A $5 donation is suggested. The service area includes Enumclaw, Black Diamond, Buckley, Wilkeson, and Carbonado.\n",
+    "description": "FREE service to anyone who demonstrates a transportation hardship for healthcare transporting needs. Operates Monday/Wednesday/Friday from 9:00 AM to 4:00 PM and Tuesday/Thursday from 9:00 to 14:00. A $5 donation is suggested. The service area includes Enumclaw, Black Diamond, Buckley, Wilkeson, and Carbonado.\n",
     "accessibility": [
       "Power Chair",
       "Wheelchair",
@@ -2818,7 +2819,8 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "M/W/F--9:00 AM-4:00 PM T/TH--9:00 AM-2:00 PM"
+      "M/W/F @ 9:00 - 16:00",
+      "T/Th @ 9:00 - 14:00"
     ],
     "service-type": [
       "Demand Response"
@@ -2860,7 +2862,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "9:00 AM- 3:30 PM "
+      "9:00 - 15:30"
     ],
     "service-type": [
       "Deviated Fixed Route"
@@ -2915,7 +2917,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "12:00 am - 11:59 pm"
+      "12:00 - 23:59"
     ],
     "service-type": [
       "Taxi"
@@ -2966,7 +2968,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "7 AM to 7 PM "
+      "7:00 - 19:00"
     ],
     "service-type": [
       "Fixed Route"
@@ -3024,7 +3026,8 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "M-F 7:30 am - 11:00 pm   Sa-Su 8:30am to 11pm"
+      "M/Tu/W/Th/F @ 7:30 - 23:00",
+      "Sa/Su @ 8:30 - 23:00"
     ],
     "service-type": [
       "Fixed Route"
@@ -3081,7 +3084,9 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "M-Th 6 a - 9 p. F-Sa 6 a - 11p. Su-Holidays 10a - 7p"
+	"M/Tu/W/Th @ 6:00 - 21:00",
+        "F/Sa @ 6:00 - 23:00".
+        "Su/Holiday @ 10:00 - 19:00"
     ],
     "service-type": [
       "Fixed Route"
@@ -3138,7 +3143,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "12:00 am - 11:59 pm"
+      "12:00 - 23:59"
     ],
     "service-type": [
       "Intercity"
@@ -3194,7 +3199,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "Hours vary based on trips"
+      "Data missing: Hours vary based on trips"
     ],
     "service-type": [
       "Intercity"
@@ -3250,7 +3255,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "6:00 am - 8:00 pm"
+      "6:00 - 20:00"
     ],
     "service-type": [
       "Demand Response"
@@ -3304,7 +3309,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "6:00 am - 7:00 pm"
+      "6:00 - 19:00"
     ],
     "service-type": [
       "Deviated Fixed Route"
@@ -3358,7 +3363,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "5:35 AM - 9:15 PM"
+      "5:35 - 21:15"
     ],
     "service-type": [
       "Fixed Route"
@@ -3412,7 +3417,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "7:00 am - 4:00 pm"
+      "7:00 - 16:00"
     ],
     "service-type": [
       "Fixed Route"
@@ -3470,7 +3475,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3528,7 +3533,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3586,7 +3591,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3644,7 +3649,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3702,7 +3707,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3760,7 +3765,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3825,7 +3830,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3883,7 +3888,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3943,7 +3948,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 4:30 pm"
+      "8:00 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -3996,7 +4001,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "8:00 am - 5:00 pm"
+      "8:00 - 17:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -4053,7 +4058,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "5:00 am - 12:00 am"
+      "5:00 - 12:00 am"
     ],
     "service-type": [
       "Intercity"
@@ -4110,7 +4115,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "5:00 am - 12:00 am"
+      "5:00 - 12:00 am"
     ],
     "service-type": [
       "Intercity"
@@ -4167,7 +4172,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "Service hours differ.  Check website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Intercity"
@@ -4220,7 +4225,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Fixed Route"
@@ -4267,7 +4272,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "5:30am - 4:30pm"
+      "5:30 - 16:30"
     ],
     "service-type": [
       "Demand Response"
@@ -4324,7 +4329,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "9:00 am - 5:00 pm"
+      "9:00 - 17:00"
     ],
     "service-type": [
       "Other"
@@ -4380,7 +4385,7 @@
       "Su", "Sa"
     ],
     "service-hours": [
-      "7 am - 7 pm"
+      "7:00 - 19:00"
     ],
     "service-type": [
       "Fixed Route"
@@ -4493,7 +4498,7 @@
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
     ],
     "service-hours": [
-      "12:00 am - 11:59 pm"
+      "12:00 - 23:59"
     ],
     "service-type": [
       "Intercity"
@@ -4543,7 +4548,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "7:00am - 6:33pm"
+      "7:00 - 18:33"
     ],
     "service-type": [
       "Fixed Route"
@@ -4640,8 +4645,9 @@
     "service-days": [
       "M", "Tu", "W", "Th", "F"
     ],
+      "//": "excluding University of Washington holidays--see website for more information",
     "service-hours": [
-      "6 am - 5:45 pm; excluding University of Washington holidays--see website for more information. "
+      "6:00 - 17:45"
     ],
     "service-type": [
       "Fixed Route"
@@ -4665,7 +4671,7 @@
       "Walker"
     ],
     "advance-notice-notes": [
-      "Please call to book a ride at least 5 business days before your appointment. VTS can only drive you to appointments which are scheduled for no earlier than 8 am, and for appointments that end no later than 1 pm."
+      "Please call to book a ride at least 5 business days before your appointment. VTS can only drive you to appointments which are scheduled for no earlier than 8 am, and for appointments that end no later than 13:00."
     ],
     "cost": {
       "cost-adult": [
@@ -4695,7 +4701,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "See website"
+      "Data missing: See website"
     ],
     "service-type": [
       "Intercity"
@@ -4749,7 +4755,7 @@
       "M", "Tu", "W", "F"
     ],
     "service-hours": [
-      "9:00 am-3:00 pm "
+      "9:00 - 15:00"
     ],
     "service-type": [
       "Volunteer Driver"
@@ -4800,7 +4806,7 @@
       "Tu", "W", "F"
     ],
     "service-hours": [
-      "Call for more information"
+      "Data missing: Call for more information"
     ],
     "service-type": [
       "Other"
@@ -4854,7 +4860,7 @@
       "M", "Tu", "W", "Th", "F"
     ],
     "service-hours": [
-      "Winter: Peak Hours Only"
+      "Data missing: Winter: Peak Hours Only"
     ],
     "service-type": [
       "Fixed Route"

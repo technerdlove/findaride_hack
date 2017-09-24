@@ -66,6 +66,7 @@ function IsInServiceInterval(service, datetime) {
     return times.some(function (days_time) {
         var parts = days_time.split("@");
         var days = parts[0].split("/");
+        document.write("Trying " + days + ", " + parts[1] + ", " + datetime + "<br/>\n");
         return days.include(theDay) && IsInTimeRangeString(parts[1].trim(), datetime);
     });
 }
