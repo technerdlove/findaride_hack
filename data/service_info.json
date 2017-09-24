@@ -3085,7 +3085,7 @@
     ],
     "service-hours": [
 	"M/Tu/W/Th @ 6:00 - 21:00",
-        "F/Sa @ 6:00 - 23:00".
+        "F/Sa @ 6:00 - 23:00",
         "Su/Holiday @ 10:00 - 19:00"
     ],
     "service-type": [
