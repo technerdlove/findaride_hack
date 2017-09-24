@@ -194,6 +194,7 @@
 
         var dartPickupAreas = null;
         var transitRoutes = null;
+        var routePlacemarks = {};
         var map = null;
         var geocoder = null;
         var toggleState = 1;
@@ -227,6 +228,12 @@
             toggleLayer(dartPickupAreas, true);
             toggleLayer(transitRoutes, true);
             $('#map-options').show();
+
+            // map dartPickupAreas to their respective routes
+            for (let i = 0; i < transitRoutes.docs[0].placemarks.length; i++) {
+                let placemark = transitRoutes.docs[0].placemarks[i];
+                routePlacemarks[placemark.name] = placemark;
+            }
         }
 
         function initialize() {
@@ -262,10 +269,17 @@
                     map.setCenter(point);
                     if (marker && marker.setMap) marker.setMap(null);
                     marker = new google.maps.Marker({map: map, position: point});
-                    for (var i=0; i<dartPickupAreas.docs[0].gpolygons.length; i++) {
-                        if (dartPickupAreas.docs[0].gpolygons[i].Contains(point)) {
-                            contentString = address+"<br>"+dartPickupAreas.docs[0].placemarks[i].name;
-                            dartPickupAreas.docs[0].gpolygons[i].setMap(map);
+                    for (var i=0; i<dartPickupAreas.docs[0].placemarks.length; i++) {
+                        let placemark = dartPickupAreas.docs[0].placemarks[i];
+                        if (placemark.polygon.Contains(point)) {
+                            contentString = address+"<br>"+placemark.name;
+
+                            // toggle pickup area
+                            placemark.polygon.setMap(map);
+
+                            // toggle route
+                            let r = placemark.name.slice("Route ".length);
+                            routePlacemarks[r].polyline.setMap(map);
                             break;
                         }
                     }
