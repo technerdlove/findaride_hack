@@ -129,8 +129,9 @@
     "phone": [
       "(206) 695-2905"
     ],
+      "//": "Data unfriendly",
     "service-area": [
-      "See website for details. "
+      "Depends"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -298,7 +299,7 @@
       "(425) 374-6336", "(888) 240-8572"
     ],
     "service-area": [
-      "Snohomish"
+      "Snohomish County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -347,7 +348,7 @@
       "(253) 884-9814"
     ],
     "service-area": [
-      "Pierce", "Kitsap County"
+      "Pierce County", "Kitsap County"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -394,7 +395,7 @@
       "253-854-0077 (South King County)"
     ],
     "service-area": [
-	"Snohomish", "King", "Clallam", "Clark", "Cowlitz", "Grays Harbor", "Jefferson", "Kitsap", "Lewis", "Mason", "Pacific", "Pierce", "Thurston", "Skamania", "Wahkiakum"
+	"Snohomish County", "King County", "Clallam County", "Clark County", "Cowlitz County", "Grays Harbor County", "Jefferson County", "Kitsap County", "Lewis", "Mason County", "Pacific County", "Pierce County", "Thurston County", "Skamania County", "Wahkiakum Conuty"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -818,8 +819,9 @@
       "(206) 625-4500/ ESL translation available ",
       "Alternative formats available--(206) 625-4500 TTY Relay: 711"
     ],
+      "//": "Pickup service area",
     "service-area": [
-      "Available for van pickup in Duvall only at this time. "
+	"Duvall",
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -962,7 +964,7 @@
       "(360) 825-4741"
     ],
     "service-area": [
-      "Enumclaw only"
+      "Enumclaw"
     ],
     "service-days": [
       "M", "Tu", "W", "Th"
@@ -1017,8 +1019,9 @@
     "phone": [
       "425-257-7777"
     ],
+      "//": "City of Everett",
     "service-area": [
-      "City of Everett"
+      "Everett"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -1797,8 +1800,9 @@
     "phone": [
       "866-261-3278", "TTY: 800-246-1646"
     ],
+      "//": "Multiple areas in King County",
     "service-area": [
-      "Multiple areas in King County"
+      "King County"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
@@ -4629,9 +4633,9 @@
     "phone": [
       "(206) 685-3146"
     ],
-	  "//": "FIXME",
+	  "//": "What is this route?",
     "service-area": [
-      "The Health Sciences Express provides transportation between UW Medical Center and Harborview Medical Center, with stops at Roosevelt Clinic and UW Tower."
+      "UW Medical Center to Roosevelt Clinic to UW Tower to Harborview Medical Center"
     ],
     "service-days": [
       "M", "Tu", "W", "Th", "F"
@@ -4788,8 +4792,9 @@
     "phone": [
       "First time riders: (206)461-7825; Return Riders: (206)856-8250"
     ],
+      "//": "Seattle city limits",
     "service-area": [
-      "Seattle City Limits"
+      "Seattle"
     ],
     "service-days": [
       "Tu", "W", "F"
