@@ -2331,7 +2331,8 @@
     "phone": [
       "253-476-4657"
     ],
-    "service-area": [  // FIX ME
+	  "//": "// FIX ME"
+    "service-area": [
       "Pierce County: Bonney Lake, Buckley, Burnett, Carbonado, Cascade Junction, Eatonville, Frederickson, Graham, Kapowsin, Lake Tapps, McKenna, Orting, Prairie Ridge, Roy, South Hill, South Prairie, Spanaway, Sumner and Wilkeson."
     ],
     "service-days": [
@@ -4628,7 +4629,8 @@
     "phone": [
       "(206) 685-3146"
     ],
-    "service-area": [  // FIXME
+	  "//": "FIXME"
+    "service-area": [
       "The Health Sciences Express provides transportation between UW Medical Center and Harborview Medical Center, with stops at Roosevelt Clinic and UW Tower."
     ],
     "service-days": [
