@@ -181,7 +181,7 @@
         })
 
 
-        var geoXml = null;
+        var dartPickupAreas = null;
         var map = null;
         var geocoder = null;
         var toggleState = 1;
@@ -201,9 +201,9 @@
             }
 
             map = new google.maps.Map(document.getElementById("map"), myOptions);
-            geoXml = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
+            dartPickupAreas = new geoXML3.parser({map: map, singleInfoWindow: true, infoWindow: infowindow});
 
-            geoXml.parse("data/dart_area.kml");
+            dartPickupAreas.parse("data/dart_area.kml");
         }
 
         function showAddress() {
@@ -216,10 +216,10 @@
                     map.setCenter(point);
                     if (marker && marker.setMap) marker.setMap(null);
                     marker = new google.maps.Marker({map: map, position: point});
-                    for (var i=0; i<geoXml.docs[0].gpolygons.length; i++) {
-                        if (geoXml.docs[0].gpolygons[i].Contains(point)) {
-                            contentString = address+"<br>"+geoXml.docs[0].placemarks[i].name;
-                            i = geoXml.docs[0].gpolygons.length; // Jump out of loop
+                    for (var i=0; i<dartPickupAreas.docs[0].gpolygons.length; i++) {
+                        if (dartPickupAreas.docs[0].gpolygons[i].Contains(point)) {
+                            contentString = address+"<br>"+dartPickupAreas.docs[0].placemarks[i].name;
+                            break;
                         }
                     }
                     google.maps.event.addListener(marker, 'click', function() {
