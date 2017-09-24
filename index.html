@@ -446,6 +446,7 @@
 
                 map.setCenter(point);
 
+                let hasArea = false;
                 let contentString = origin + "<br>" + destination;
 
                 if (hydeExpectOrigin && hydeExpectDestination) {
@@ -456,6 +457,7 @@
                             if (hydeOrigins[i] == hydeDestinations[i]) {
                                 hydeOrigins[i].polygon.setMap(map);
                                 contentString += "<br>" + hydeOrigins[i].name;
+                                hasArea = true;
                             }
                         }
                     }
@@ -463,14 +465,24 @@
                     for (let i = 0; i < hydeOrigins.length; i++) {
                         hydeOrigins[i].polygon.setMap(map);
                         contentString += "<br>" + hydeOrigins[i].name;
+                        hasArea = true;
                     }
                 } else if (hydeExpectDestination) {
                     for (let i = 0; i < hydeDestinations.length; i++) {
                         hydeDestinations[i].polygon.setMap(map);
                         contentString += "<br>" + hydeDestinations[i].name;
+                        hasArea = true;
                     }
                 }
 
+                if (!hasArea) {
+                    contentString += "<br>Address is not in Hyde Shuttle area.";
+                    contentString += "<br>";
+                    contentString += "<button class=\"btn btn-link\"";
+                    contentString += "        onclick=\"toggleLayer(hydeShuttles, false);\">";
+                    contentString += "Click here to show nearest areas";
+                    contentString += "</button>";
+                }
                 setMapMarker(point, contentString);
             };
         };
