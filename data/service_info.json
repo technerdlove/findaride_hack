@@ -821,7 +821,7 @@
     ],
       "//": "Pickup service area",
     "service-area": [
-	"Duvall",
+	"Duvall"
     ],
     "service-days": [
       "Su", "M", "Tu", "W", "Th", "F", "Sa"
