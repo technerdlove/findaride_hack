@@ -148,8 +148,14 @@
                           <button type="button" id="go" onclick="showAddress()" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" style="text-align: center;">
                               Address in DART Service Area?
                           </button>
-
-
+                          <button type="button" id="hyde_address_button"
+                                  onclick="maybeDisplayHydeShuttles()"
+                                  data-loading-text="Loading..."
+                                  class="btn btn-primary"
+                                  autocomplete="off"
+                                  style="text-align: center;">
+                              Address in Hyde Shuttle Service Area?
+                          </button>
                     </div>
                     <div id="menu1" class="tab-pane fade" style="text-align: center;">
 
@@ -309,7 +315,7 @@
         service = new google.maps.places.PlacesService(map);
 
         let geoOpts = {map: map,
-                       singleInfoWindow: true,
+                       singleInfoWindow: false,
                        infoWindow: infowindow};
 
         dartPickupAreas = new geoXML3.parser(geoOpts);
@@ -335,45 +341,133 @@
         }
     };
 
-            function showAddress() {
-                address = $('input[name=origin]').val();
-                var contentString = address+"<br>Outside DART Service Area";
+    function clearTransitLayers() {
+        toggleLayer(dartPickupAreas, true);
+        toggleLayer(transitRoutes, true);
+        toggleLayer(hydeShuttles, true);
+    }
 
-                geocoder.geocode({'address': address}, function(results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        var point = results[0].geometry.location;
-                        map.setCenter(point);
-                        if (marker && marker.setMap) marker.setMap(null);
-                        marker = new google.maps.Marker({map: map, position: point});
-                        for (var i=0; i<dartPickupAreas.docs[0].placemarks.length; i++) {
-                            let placemark = dartPickupAreas.docs[0].placemarks[i];
-                            if (placemark.polygon.Contains(point)) {
-                                contentString = address+"<br>"+placemark.name;
+    function showAddress() {
+        clearTransitLayers();
 
-                                // toggle pickup area
-                                placemark.polygon.setMap(map);
+        let address = $('input[name=origin]').val();
+        var contentString = address+"<br>Outside DART Service Area";
 
-                                // toggle route
-                                let r = placemark.name.slice("Route ".length);
-                                routePlacemarks[r].polyline.setMap(map);
-                                break;
+        geocoder.geocode({'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var point = results[0].geometry.location;
+                map.setCenter(point);
+                if (marker && marker.setMap) marker.setMap(null);
+                marker = new google.maps.Marker({map: map, position: point});
+                for (var i=0; i<dartPickupAreas.docs[0].placemarks.length; i++) {
+                    let placemark = dartPickupAreas.docs[0].placemarks[i];
+                    if (placemark.polygon.Contains(point)) {
+                        contentString = address+"<br>"+placemark.name;
+
+                        // toggle pickup area
+                        placemark.polygon.setMap(map);
+
+                        // toggle route
+                        let r = placemark.name.slice("Route ".length);
+                        routePlacemarks[r].polyline.setMap(map);
+                        break;
+                    }
+                }
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map,marker);
+                });
+                google.maps.event.trigger(marker,"click");
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
+
+    // if origin and destination are in the hyde shuttle region,
+    // we'll display that layer
+    function maybeDisplayHydeShuttles() {
+        clearTransitLayers();
+
+        // XXX: is this even atomic??
+        let hydeRequests = 0;
+        let hydeOrigins = [];
+        let hydeDestinations = [];
+        let hydeExpectOrigin = false;
+        let hydeExpectDestination = false;
+
+        let origin = $('input[name=origin]').val();
+        let destination = $('input[name=destination]').val();
+
+        let getMatchFunc = function(output) {
+            return function (results, status) {
+                if (status != google.maps.GeocoderStatus.OK) {
+                    console.log("Geocode was not successful for the" +
+                                " following reason: " + status);
+                    return;
+                }
+
+                let point = results[0].geometry.location;
+
+                let placemarks = getPlacemarks(hydeShuttles, point);
+                for (let i = 0; i < placemarks.length; i++) {
+                    output.push(placemarks[i]);
+                }
+
+                hydeRequests--;
+                if (hydeRequests > 0) {
+                    return;
+                }
+
+                console.log("hyde origins", hydeOrigins);
+                console.log("hyde destinations", hydeDestinations);
+
+                map.setCenter(point);
+
+                if (hydeExpectOrigin && hydeExpectDestination) {
+                    // shuttle must be in both
+                    // XXX: maybe use js Set
+                    for (let i = 0; i < hydeOrigins.length; i++) {
+                        for (let j = 0; j < hydeDestinations.length; j++) {
+                            if (hydeOrigins[i] == hydeDestinations[i]) {
+                                hydeOrigins[i].polygon.setMap(map);
                             }
                         }
-                        google.maps.event.addListener(marker, 'click', function() {
-                            infowindow.setContent(contentString);
-                            infowindow.open(map,marker);
-                        });
-                        google.maps.event.trigger(marker,"click");
-                    } else {
-                        alert("Geocode was not successful for the following reason: " + status);
                     }
-                });
-            }
+                } else if (hydeExpectOrigin) {
+                    for (let i = 0; i < hydeOrigins.length; i++) {
+                        hydeOrigins[i].polygon.setMap(map);
+                    }
+                } else if (hydeExpectDestination) {
+                    for (let i = 0; i < hydeDestinations.length; i++) {
+                        hydeDestinations[i].polygon.setMap(map);
+                    }
+                }
+            };
+        };
 
+        if (origin) {
+            hydeExpectOrigin = true;
+            hydeRequests++;
+        }
+        if (destination) {
+            hydeExpectDestination = true;
+            hydeRequests++;
+        }
 
-            google.maps.event.addDomListener(window,'load',initMap);
+        hydeOrigins = [];
+        hydeDestinations = [];
+        if (origin) {
+            geocoder.geocode({'address': origin},
+                             getMatchFunc(hydeOrigins));
+        }
+        if (destination) {
+            geocoder.geocode({'address': destination},
+                             getMatchFunc(hydeDestinations));
+        }
+    }
 
-
+    google.maps.event.addDomListener(window,'load',initMap);
 
     </script>
 
@@ -382,7 +476,17 @@
         /**
           * Layers
         **/
-
+        function getPlacemarks(layer, point) {
+            let out = [];
+            let placemarks = layer.docs[0].placemarks;
+            for (let i = 0; i < placemarks.length; i++) {
+                let placemark = placemarks[i];
+                if (placemark.polygon.Contains(point)) {
+                    out.push(placemark);
+                }
+            }
+            return out;
+        }
 
         function toggleLayer(layer, forceDelete) {
             for (let i = 0; i < layer.docs[0].gpolygons.length; i++) {
