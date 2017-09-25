@@ -783,14 +783,29 @@
     <script>  
       
 // ============== TNL
-     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+      
+       directionsService = new google.maps.DirectionsService;
+    // Create the autocomplete object and associate it with the UI input control.
+    // Restrict the search to the default country, and to place type "cities".
+    autocomplete = new google.maps.places.Autocomplete(
+        /* @type {!HTMLInputElement} */ (
+            document.getElementById('autocomplete')), {});
+    //autocomplete.addListener('place_changed', onPlaceChanged);
+}
+
+      
+      var destinationString = document.getElementById("destination-input").value;
+      var originString = document.getElementById("origin-input").value;
+          
+      
+      
+      
+      
+     function calculateAndDisplayRoute(origin, destination, directionsService, directionsDisplay) {
         var selectedMode = document.getElementById('mode').value;
         directionsService.route({
-          origin: {lat: 37.77, lng: -122.447},  // Haight.
-          destination: {lat: 37.768, lng: -122.511},  // Ocean Beach.
-          // Note that Javascript allows us to access the constant
-          // using square brackets and a string value as its
-          // "property."
+          origin: origin,  
+          destination: destination,  
           travelMode: 'TRANSIT'
         }, function(response, status) {
           if (status == 'OK') {
